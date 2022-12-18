@@ -6,22 +6,30 @@ export default function TextForm(props) {
 
   const handelCopyClick=()=>{
     navigator.clipboard.writeText(text);
+    props.showAlert("Copied to Clipboard!","success");
+
   }
 
   const handelUpClick=()=>{
     var newText= text.toUpperCase();
     setText(newText)
+    props.showAlert("Converted to Uppercase!","success");
   }
 
   const handelLowClick=()=>{
 
     var newText= text.toLowerCase();
     setText(newText)
+    props.showAlert("Converted to Lowercase!","success");
+
   }
 
   const handelClearClick=()=>{
     var newText= text.replace(text,"");
     setText(newText)
+    props.showAlert("Text Cleared!","success");
+
+
   }
   
 
@@ -52,6 +60,7 @@ export default function TextForm(props) {
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.len>0?text:"Enter something in the textbox above to preview"}</p>
+        <p>{text}</p>
         
       </div>
     </>
